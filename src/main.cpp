@@ -1,23 +1,21 @@
-#include "raylib.h"
+#include "Window.hpp"
 
 constexpr int SCREEN_WIDTH = 1280;
 constexpr int SCREEN_HEIGHT = 720;
 
 int main() {
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "[TANK NAME HERE] Controller");
-    SetTargetFPS(60);
+    Window::init(SCREEN_WIDTH, SCREEN_HEIGHT, "[TANK NAME HERE]");
 
-    while (!WindowShouldClose()) {
-        BeginDrawing();
+    while (Window::isRunning()) {
+        Window::background(dracula::black);
 
-        ClearBackground(WHITE);
+        Window::fontColor = dracula::white;
+        Window::fontSize = 40;
+        Window::text("It's a work in progress, ok?", 5, 5);
 
-        DrawText("It's a work in progress, oK?", 5, 5, 20, BLACK);
-
-        EndDrawing();
+        Window::update();
     }
 
-    CloseWindow();
-
+    Window::close();
     return 0;
 }
