@@ -23,13 +23,20 @@ FetchContent_MakeAvailable(raylib)
 #set(PROJECT_INCLUDE "${CMAKE_CURRENT_LIST_DIR}/src/") # Define PROJECT_INCLUDE to be the path to the include directory of the project
 
 add_executable(robot_controller src/main.cpp
-        src/Window.hpp)
+        src/Window.hpp
+        src/Gamepad.hpp
+        src/Gamepad.cpp
+        src/Vec2D.hpp
+        src/Vec2D.cpp
+        src/ImageContainer.cpp
+        src/ImageContainer.hpp
+)
 target_link_libraries(robot_controller PRIVATE raylib)
 
 add_executable(gamepad_test src/gamepad-test.cpp
         src/Window.hpp
         src/Gamepad.hpp
         src/Gamepad.cpp
-        src/Vec2D.cpp
-        src/Vec2D.hpp)
+        src/Vec2D.hpp
+        src/Vec2D.cpp)
 target_link_libraries(gamepad_test PRIVATE raylib)
